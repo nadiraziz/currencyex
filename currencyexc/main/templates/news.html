@@ -1,0 +1,55 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+
+<body id="inner_page" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
+
+
+
+    <!-- Start Banner -->
+    <div class="section inner_page_banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="banner_title">
+                        <h3>News</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Banner -->
+    
+   <!-- section -->
+    <div class="section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="full">
+                        <div class="heading_main text_align_center">
+                           <h2><span class="theme_color"></span>News</h2>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% for news_one in news %}
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="full news_blog">
+                       <img class="img-responsive" src="{{news_one.imageURL}}" alt="#" />
+                       <div class="overlay"><a class="main_bt transparent" href="#">View</a></div>
+                       <div class="blog_details">
+                         <h3>{{news_one.news_title}}</h3>
+                         <!-- need content -->
+                         <p>--</p>
+                       </div>
+                    </div>
+                </div>
+                {% endfor %}
+             </div>
+        </div>
+    </div>
+    <!-- end section -->
+   
+{% endblock content %}

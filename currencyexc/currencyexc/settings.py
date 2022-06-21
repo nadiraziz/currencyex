@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-)2de1njqiusp^i^^e@yq+*(=r#2f=ta+(@wa)k3q--4$bqp40#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -78,13 +79,23 @@ WSGI_APPLICATION = 'currencyexc.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'currency-exc',
+        'USER': 'postgres',
+        'PASSWORD': '7505',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -146,10 +157,10 @@ EMAIL_USER_SSL = False
 EMAIL_HOST_USER = 'nadirkkdeveloper@gmail.com'
 EMAIL_HOST_PASSWORD = 'Nadir@7505'
 
-# config/settings.py
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' # new
-EMAIL_HOST = 'smtp.gmail.com' # new
-EMAIL_HOST_USER = 'nadiraziziyah@gmail.com' # new
-EMAIL_HOST_PASSWORD = 'phmtcxczmplbcntt' # new
-EMAIL_PORT = 587 # new
-EMAIL_USE_TLS = True # new
+# # config/settings.py
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' # new
+# EMAIL_HOST = 'smtp.gmail.com' # new
+# EMAIL_HOST_USER = 'nadiraziziyah@gmail.com' # new
+# EMAIL_HOST_PASSWORD = 'phmtcxczmplbcntt' # new
+# EMAIL_PORT = 587 # new
+# EMAIL_USE_TLS = True # new
